@@ -1,9 +1,9 @@
 # Text Annotation Utility for the DataPsych Lab
 
-This repository defines a simple annotation utility that runs as a Jupyter notebook. Tool allows for document-level labeling (with plans to add span-level annotation) according to a label schema defined by the user in a configuration file. This configuration file, as well as files giving the annotation assignments and documents can be placed in a shared location that annotators can access. Annotators can then simply run the Jupyter notebook and begin annotating! 
+This repository defines a simple annotation utility that runs as a Jupyter notebook. The tool allows for document-level labeling (with plans to add span-level annotation) according to a label schema defined by the user in a configuration file. This configuration file, as well as files giving the annotation assignments and documents can be placed in a shared location that annotators can access. Annotators can then simply run the Jupyter notebook and begin annotating! 
 
 ## Annotation interface
-The annotation interface (shown below) was designed to be simple an user friendly. A detailed guide for annotators can be found in annotators_guide.pdf. In short, once the Jupyter notebook has been run, the annotation:
+The annotation interface (shown below) was designed to be simple and user friendly. A detailed guide for annotators can be found in annotators_guide.pdf. In short, once the Jupyter notebook has been run, the annotation:
 
 1. Selects their name from the Annotator dropdown
 2. Navigates to a document using either the Document dropdown or the navigation buttons
