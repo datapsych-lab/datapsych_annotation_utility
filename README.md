@@ -5,7 +5,7 @@ This repository defines a simple annotation tool that runs as a Jupyter notebook
 Disclaimer: This is research code meant to provide basic functionality. It may contain bugs.
 
 ## Annotation interface
-The annotation interface (shown below) was designed to be simple and user friendly. A detailed guide for annotators can be found in annotators_guide.pdf. In short, once the Jupyter notebook has been run, the annotation:
+The annotation interface (shown below) was designed to be simple and user friendly. A detailed guide for annotators using the tool on DataBricks can be found in databricks_annotators_guide.pdf. In short, once the Jupyter notebook has been run, the annotation:
 
 1. Selects their name from the Annotator dropdown
 2. Navigates to a document using either the Document dropdown or the navigation buttons
