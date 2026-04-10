@@ -63,15 +63,25 @@ class AnnotationWidget:
       Loads the documents CSV file into a pandas DataFrame.
       Extracts the list of annotators from the DataFrame.
     """
+    id_df = self.assignments[['document_id']].drop_duplicates()
     if self.documents_path is None:
-      qry = f"select {self.document_id_column} as document_id, {self.document_text_column} as document from {self.documents_table};"
+      qry = f"""
+      select 
+        d.{self.document_id_column} as document_id, 
+        d.{self.document_text_column} as document 
+      from {self.documents_table} as d
+      inner join id_view as v
+      on v.document_id = d.{self.document_id_column};
+      """
       spark = SparkSession.builder.appName(f"Annotation tool: {self.project_name}").getOrCreate()
+      id_spark_df = spark.createDataFrame(id_df)
+      id_spark_df.createOrReplaceTempView("id_view")
       self.documents = spark.sql(qry).toPandas().astype(str)
     else:
       # Check if the documents file exists
       if not os.path.exists(self.documents_path):
         raise FileNotFoundError(f'{self.documents_path} not found.')
-      self.documents = pd.read_csv(self.documents_path,dtype=str)
+      self.documents = pd.read_csv(self.documents_path,dtype=str).merge(id_df,how='inner',on='document_id')
 
   def load_output_file(self):
     """
